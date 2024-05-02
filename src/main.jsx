@@ -14,7 +14,29 @@ const colors = {
   },
 };
 
-const theme = extendTheme({ colors });
+const theme = extendTheme({
+  colors,
+  fonts: {
+    heading: "'Roboto', sans-serif",
+    body: "'Roboto', sans-serif",
+  },
+  components: {
+    Button: {
+      baseStyle: {
+        fontWeight: "bold",
+      },
+      variants: {
+        solid: {
+          bg: "brand.800",
+          color: "white",
+          _hover: {
+            bg: "brand.700",
+          },
+        },
+      },
+    },
+  },
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
