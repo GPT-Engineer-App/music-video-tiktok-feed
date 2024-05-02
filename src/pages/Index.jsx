@@ -41,23 +41,27 @@ const Index = () => {
   };
 
   return (
-    <Box>
-      <Heading mb={8}>Music Video Feed</Heading>
+    <Box bg="background.50" color="white">
+      <Heading mb={8} color="brand.700">
+        Music Video Feed
+      </Heading>
 
       {loading ? (
         <Spinner />
       ) : (
         <VStack spacing={8} align="stretch">
           {videos.map((video) => (
-            <Box key={video.id} borderWidth={1} p={4}>
+            <Box key={video.id} borderWidth={1} p={4} bg="brand.800" borderColor="brand.700">
               <AspectRatio maxW="560px" ratio={16 / 9}>
                 <iframe title={video.title} src={video.url} allowFullScreen />
               </AspectRatio>
 
               <HStack mt={4} spacing={4}>
-                <Text fontWeight="bold">{video.title}</Text>
-                <IconButton icon={<FaShare />} aria-label="Share video" onClick={() => shareToTikTok(video)} />
-                <IconButton icon={<FaMusic />} aria-label="Share music" onClick={() => shareMusic(video.musicUrl)} />
+                <Text fontWeight="bold" color="brand.700">
+                  {video.title}
+                </Text>
+                <IconButton icon={<FaShare />} aria-label="Share video" onClick={() => shareToTikTok(video)} colorScheme="teal" variant="solid" />
+                <IconButton icon={<FaMusic />} aria-label="Share music" onClick={() => shareMusic(video.musicUrl)} colorScheme="teal" variant="solid" />
               </HStack>
             </Box>
           ))}
